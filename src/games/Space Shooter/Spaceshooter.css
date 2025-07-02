@@ -1,0 +1,185 @@
+/* Galactic Defender - Space Shooter Game Styles */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+.space-shooter-container {
+  font-family: 'Orbitron', monospace;
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.space-shooter-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: twinkle 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  50% { opacity: 1; }
+  to { opacity: 0.3; }
+}
+
+.game-title {
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  letter-spacing: 3px;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.game-canvas {
+  border: 3px solid transparent;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff) border-box;
+  box-shadow: 
+    0 0 30px rgba(0, 255, 255, 0.6),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.game-canvas:hover {
+  box-shadow: 
+    0 0 50px rgba(0, 255, 255, 0.8),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+  transform: scale(1.01);
+}
+
+.game-controls {
+  color: #a0a0ff;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.game-status {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  text-align: center;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.game-over {
+  color: #ff4444;
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid #ff4444;
+  font-size: 2rem;
+  text-shadow: 0 0 20px #ff4444;
+  animation: pulse 1s infinite;
+}
+
+.game-paused {
+  color: #ffff00;
+  background: rgba(255, 255, 0, 0.1);
+  border: 1px solid #ffff00;
+  font-size: 1.5rem;
+  text-shadow: 0 0 15px #ffff00;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.hud-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #00ffff;
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px #00ffff;
+  z-index: 10;
+}
+
+.health-bar {
+  width: 200px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #00ffff;
+  border-radius: 7px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.health-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .game-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .game-canvas {
+    max-width: 90vw;
+    height: auto;
+  }
+  
+  .game-controls {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff00ff, #ffff00);
+}

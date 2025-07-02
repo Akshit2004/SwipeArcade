@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Soduko from '../../games/Soduko/Soduko';
@@ -9,8 +10,8 @@ const Home = () => {
   const [games] = useState([
     {
       id: 1,
-      title: "Puzzle Master",
-      description: "Challenge your mind with intricate puzzles",
+      title: "Soduko",
+      description: "Challenge your mind with intricate Soduko",
       category: "Puzzle",
       image: "🧩",
       difficulty: "Medium",
@@ -65,6 +66,7 @@ const Home = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('All');
   const categories = ['All', 'Puzzle', 'Racing', 'Word', 'Action', 'Brain', 'Strategy'];
+  const navigate = useNavigate();
 
   const filteredGames = selectedCategory === 'All' 
     ? games 
@@ -78,6 +80,8 @@ const Home = () => {
       default: return '#95a5a6';
     }
   };
+
+  const slugify = (str) => str.toLowerCase().replace(/ /g, '-');
 
   return (
     <div className="home">
@@ -107,7 +111,12 @@ const Home = () => {
           {/* Games Grid */}
           <div className="games-grid">
             {filteredGames.map(game => (
-              <div key={game.id} className="game-card">
+              <div 
+                key={game.id} 
+                className="game-card"
+                onClick={() => navigate(`/gameplayer/${slugify(game.title)}`)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="game-icon">
                   {game.image}
                 </div>
@@ -131,7 +140,10 @@ const Home = () => {
                     <Soduko />
                   </div>
                 )}
-                <button className="play-button">
+                <button 
+                  className="play-button"
+                  tabIndex={-1}
+                >
                   Play Now
                 </button>
               </div>

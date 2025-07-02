@@ -9,8 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/game/sudoku" element={<GamePlayer />} />
-        <Route path="/game-player/soduko" element={<GamePlayer />} />
+        <Route path="/gameplayer/:slug" element={<GamePlayer />} />
       </Routes>
     </BrowserRouter>
   );
