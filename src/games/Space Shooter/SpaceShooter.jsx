@@ -517,14 +517,10 @@ const SpaceShooter = () => {
 
   return (
     <div className="space-shooter-container">
-      <h2 className="game-title">
-        🚀 GALACTIC DEFENDER 🚀
-      </h2>
-      
       <canvas
         ref={canvasRef}
         width={800}
-        height={600}
+        height={690}
         className="game-canvas"
       />
       
@@ -540,20 +536,6 @@ const SpaceShooter = () => {
             PAUSED - Press P to continue
           </div>
         )}
-        
-        <div className="game-controls">
-          <div>🎮 CONTROLS:</div>
-          <div>WASD/Arrow Keys: Move Ship</div>
-          <div>Spacebar: Fire Weapons</div>
-          <div>P: Pause Game</div>
-          <div>R: Restart (when game over)</div>
-          <br />
-          <div>🎯 OBJECTIVES:</div>
-          <div>• Destroy enemy ships for points</div>
-          <div>• Collect power-ups for advantages</div>
-          <div>• Survive waves to advance levels</div>
-          <div>• Achieve the highest score possible</div>
-        </div>
       </div>
     </div>
   );
