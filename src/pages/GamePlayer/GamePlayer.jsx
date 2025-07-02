@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Soduko from '../../games/Soduko/Soduko';
 import SpaceShooter from '../../games/Space Shooter/SpaceShooter';
+import Trivia from '../../games/Trivia/Trivia';
 import './GamePlayer.css';
 
 const gameMap = {
@@ -14,6 +15,10 @@ const gameMap = {
   'space-shooter': {
     component: SpaceShooter,
     rules: SpaceShooter.rules || []
+  },
+  'trivia': {
+    component: Trivia,
+    rules: Trivia.rules || []
   },
 };
 

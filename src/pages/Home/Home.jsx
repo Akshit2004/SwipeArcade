@@ -46,12 +46,12 @@ const Home = () => {
     },
     {
       id: 5,
-      title: "Memory Game",
-      description: "Test and improve your memory skills",
-      category: "Brain",
-      image: "🧠",
-      difficulty: "Easy",
-      playTime: "2-4 min"
+      title: "Trivia",
+      description: "Test your knowledge with 10 mind-blowing questions!",
+      category: "Quiz",
+      image: "❓",
+      difficulty: "Medium",
+      playTime: "5-8 min"
     },
     {
       id: 6,
